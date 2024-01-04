@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('facebook')->nullable();
+            $table->string('xhandle')->nullable();
+            $table->string('linkdin')->nullable();
+            $table->string('whatsapp')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropIfExists('facebook');
+            $table->dropIfExists('xhandle');
+            $table->dropIfExists('linkdin');
+            $table->dropIfExists('whatsapp');
+        });
+    }
+};
